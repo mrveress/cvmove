@@ -2,6 +2,7 @@
   "name": "@adampetrovich/cvmove",
   "description": "Salesforce CLI plugin that assists with migrating ContentVersions between Salesforce organizations.",
   "version": "0.0.1",
+  "repository": "https://github.com/mrveress/cvmove",
   "dependencies": {
     "@inquirer/prompts": "^7.8.2",
     "@oclif/core": "^4",
@@ -53,7 +54,7 @@
     ],
     "topics": {
       "contentversion": {
-        "description": "description for contentversion"
+        "description": "Migrate ContentDocuments/Versions between orgs"
       }
     },
     "flexibleTaxonomy": true
