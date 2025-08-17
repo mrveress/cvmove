@@ -1,7 +1,7 @@
 {
   "name": "@adampetrovich/cvmove",
   "description": "Salesforce CLI plugin that assists with migrating ContentVersions between Salesforce organizations.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": "https://github.com/mrveress/cvmove",
   "dependencies": {
     "@inquirer/prompts": "^7.8.2",
@@ -9,8 +9,7 @@
     "@salesforce/core": "^8",
     "@salesforce/sf-plugins-core": "^12",
     "chalk": "^5.4.1",
-    "cli-progress": "^3.12.0",
-    "husky": "^9.1.7"
+    "cli-progress": "^3.12.0"
   },
   "devDependencies": {
     "@oclif/plugin-command-snapshot": "^5.1.9",
@@ -25,7 +24,8 @@
     "oclif": "4.22.9",
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
-    "wireit": "^0.14.12"
+    "wireit": "^0.14.12",
+    "husky": "^9.1.7"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -68,7 +68,7 @@
     "format": "wireit",
     "link-check": "wireit",
     "lint": "wireit",
-    "postinstall": "yarn husky install",
+    "postinstall": "test -d .git && husky install || true",
     "postpack": "sf-clean --ignore-signing-artifacts",
     "prepack": "sf-prepack --no-oclif-lock",
     "test": "wireit",
