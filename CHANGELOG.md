@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.7](https://github.com/mrveress/cvmove/compare/v0.0.6...v0.0.7) (2025-09-04)
+
+
+### Bug Fixes
+
+* switch to NPM_TOKEN and add release debugging ([40b1d0f](https://github.com/mrveress/cvmove/commit/40b1d0fe6c4c4253c6558942be642710fdc1862d))
+* switch to NPM_TOKEN and add release debugging ([b27a484](https://github.com/mrveress/cvmove/commit/b27a484945c4e7a990313828de7765102521c590))
+
 ## [0.0.6](https://github.com/mrveress/cvmove/compare/v0.0.5...v0.0.6) (2025-09-04)
 
 
