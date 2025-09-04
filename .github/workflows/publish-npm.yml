@@ -14,6 +14,14 @@ jobs:
     runs-on: ubuntu-latest
     concurrency: npm-publish
     steps:
+      - name: Debug release info
+        run: |
+          echo "Release event: ${{ github.event_name }}"
+          echo "Release action: ${{ github.event.action }}"
+          echo "Release tag: ${{ github.event.release.tag_name }}"
+          echo "Release name: ${{ github.event.release.name }}"
+          echo "Release published: ${{ github.event.release.published_at }}"
+
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -38,7 +46,7 @@ jobs:
           # The --access public flag is needed for scoped packages
           npm publish --provenance --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Verify publication
         run: |
