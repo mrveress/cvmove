@@ -89,16 +89,16 @@ jobs:
           git config --local user.name "GitHub Action"
           git add package.json package-lock.json
           git commit -m "chore: bump version to ${{ steps.new_version.outputs.new_version }}" || exit 0
-          git tag -a "${{ steps.new_version.outputs.new_version }}" -m "Release ${{ steps.new_version.outputs.new_version }}"
+          git tag -a "v${{ steps.new_version.outputs.new_version }}" -m "Release v${{ steps.new_version.outputs.new_version }}"
           git push origin HEAD:master
-          git push origin "${{ steps.new_version.outputs.new_version }}"
+          git push origin "v${{ steps.new_version.outputs.new_version }}"
 
       - name: Create GitHub Release
         if: inputs.dry_run == false
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: '${{ steps.new_version.outputs.new_version }}'
-          name: 'Release ${{ steps.new_version.outputs.new_version }}'
+          tag_name: 'v${{ steps.new_version.outputs.new_version }}'
+          name: 'Release v${{ steps.new_version.outputs.new_version }}'
           body_path: CHANGELOG_ENTRY.md
           draft: false
           prerelease: false
@@ -127,7 +127,7 @@ jobs:
       - name: Success message
         if: inputs.dry_run == false
         run: |
-          echo "✅ Release ${{ steps.new_version.outputs.new_version }} created successfully!"
+          echo "✅ Release v${{ steps.new_version.outputs.new_version }} created successfully!"
           echo "📦 Package published to npm with provenance"
-          echo "🏷️  Git tag: ${{ steps.new_version.outputs.new_version }}"
+          echo "🏷️  Git tag: v${{ steps.new_version.outputs.new_version }}"
           echo "🔗 View on npm: https://www.npmjs.com/package/@adampetrovich/cvmove"
