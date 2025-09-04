@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.4](https://github.com/mrveress/cvmove/compare/0.0.3...v0.0.4) (2025-09-04)
+
+
+### Bug Fixes
+
+* update release-please configuration for proper tagging ([86c9716](https://github.com/mrveress/cvmove/commit/86c971622753c3d9cd810738a1c18df477e6d4bf))
+* update release-please configuration for proper tagging ([b8628e6](https://github.com/mrveress/cvmove/commit/b8628e6229d556e43bacfa8895d9099c5c125a0a))
+
 ## [0.0.3](https://github.com/mrveress/cvmove/compare/v0.0.2...v0.0.3) (2025-09-04)
 
 
