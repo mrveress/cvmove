@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.10](https://github.com/mrveress/cvmove/compare/v0.0.9...v0.0.10) (2025-09-04)
+
+
+### Bug Fixes
+
+* add actions: write permission to release-please workflow ([fc290e1](https://github.com/mrveress/cvmove/commit/fc290e18603a2a7eeae74fb535416a794dc4dd61))
+* add actions: write permission to release-please workflow ([53c2cc2](https://github.com/mrveress/cvmove/commit/53c2cc29c8505b6dc44526630fc88b2fe1c24df9))
+
 ## [0.0.9](https://github.com/mrveress/cvmove/compare/v0.0.8...v0.0.9) (2025-09-04)
 
 
