@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.9](https://github.com/mrveress/cvmove/compare/v0.0.8...v0.0.9) (2025-09-04)
+
+
+### Bug Fixes
+
+* trigger publish workflow directly from release-please ([e87f880](https://github.com/mrveress/cvmove/commit/e87f880b92a202fa00d000557bf07a25508f49a7))
+* trigger publish workflow directly from release-please ([3316bc6](https://github.com/mrveress/cvmove/commit/3316bc634f7d51b439e9d03573cda36b67b7ee4b))
+
 ## [0.0.8](https://github.com/mrveress/cvmove/compare/v0.0.7...v0.0.8) (2025-09-04)
 
 
