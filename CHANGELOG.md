@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.8](https://github.com/mrveress/cvmove/compare/v0.0.7...v0.0.8) (2025-09-04)
+
+
+### Miscellaneous Chores
+
+* update workflow documentation ([b4ea0c4](https://github.com/mrveress/cvmove/commit/b4ea0c4dd8c0d8b02565e986694ea61a7b0efece))
+* update workflow documentation ([63d5fd7](https://github.com/mrveress/cvmove/commit/63d5fd7d9e340443b48f443b3aa27b4740f91124))
+
 ## [0.0.7](https://github.com/mrveress/cvmove/compare/v0.0.6...v0.0.7) (2025-09-04)
 
 
