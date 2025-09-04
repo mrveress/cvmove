@@ -5,6 +5,9 @@ on:
     types: [published]
   workflow_dispatch:
 
+# This workflow publishes the package to npm when a GitHub Release is published
+# It automatically triggers on release:published events
+
 permissions:
   contents: read
   id-token: write
