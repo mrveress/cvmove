@@ -1,0 +1,48 @@
+name: Release Please
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+      upload_url: ${{ steps.release.outputs.upload_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # Fetch full history for proper conventional commit analysis
+          fetch-depth: 0
+
+      - name: Release Please
+        id: release
+        uses: google-github-actions/release-please-action@v4
+        with:
+          # Use the default configuration file
+          config-file: '.github/release-please-config.json'
+          # Token for creating releases and PRs
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # Create a GitHub release when a release PR is merged
+          create-release: true
+          # Automatically merge release PRs (optional - you may want manual review)
+          auto-merge: false
+          # Skip if no changes detected
+          skip-if-no-changes: true
+          # Ensure tags are created for releases
+          include-component-in-tag: false
+
+      - name: Create Release PR
+        if: steps.release.outputs.release_created == 'true'
+        run: |
+          echo "Release created: ${{ steps.release.outputs.tag_name }}"
+          echo "Upload URL: ${{ steps.release.outputs.upload_url }}"

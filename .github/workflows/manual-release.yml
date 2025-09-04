@@ -1,0 +1,133 @@
+name: Manual Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version_bump:
+        description: 'Version bump type'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+          - none
+      dry_run:
+        description: 'Dry run (no actual release)'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+  id-token: write
+
+jobs:
+  manual-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build package
+        run: npm run build
+
+      - name: Run tests
+        run: npm test
+
+      - name: Get current version
+        id: current_version
+        run: |
+          CURRENT_VERSION=$(node -p "require('./package.json').version")
+          echo "current_version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+          echo "Current version: $CURRENT_VERSION"
+
+      - name: Calculate new version
+        id: new_version
+        run: |
+          CURRENT_VERSION="${{ steps.current_version.outputs.current_version }}"
+          BUMP_TYPE="${{ inputs.version_bump }}"
+
+          if [ "$BUMP_TYPE" = "none" ]; then
+            NEW_VERSION="$CURRENT_VERSION"
+          else
+            # Use npm version to calculate new version
+            NEW_VERSION=$(npm version $BUMP_TYPE --no-git-tag-version --dry-run | sed 's/v//')
+          fi
+
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          echo "New version: $NEW_VERSION"
+
+      - name: Update package.json version
+        if: inputs.version_bump != 'none'
+        run: |
+          npm version ${{ inputs.version_bump }} --no-git-tag-version
+          echo "Updated package.json to version ${{ steps.new_version.outputs.new_version }}"
+
+      - name: Generate changelog
+        run: |
+          # Create a simple changelog entry for manual releases
+          CHANGELOG_ENTRY="## [${{ steps.new_version.outputs.new_version }}] - $(date -u +%Y-%m-%d)\n\n### Manual Release\n- Version bump: ${{ inputs.version_bump }}\n- Triggered by: ${{ github.actor }}\n- Workflow: ${{ github.workflow }}\n"
+          echo -e "$CHANGELOG_ENTRY" > CHANGELOG_ENTRY.md
+
+      - name: Create Git tag
+        if: inputs.dry_run == false
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add package.json package-lock.json
+          git commit -m "chore: bump version to ${{ steps.new_version.outputs.new_version }}" || exit 0
+          git tag -a "${{ steps.new_version.outputs.new_version }}" -m "Release ${{ steps.new_version.outputs.new_version }}"
+          git push origin HEAD:master
+          git push origin "${{ steps.new_version.outputs.new_version }}"
+
+      - name: Create GitHub Release
+        if: inputs.dry_run == false
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: '${{ steps.new_version.outputs.new_version }}'
+          name: 'Release ${{ steps.new_version.outputs.new_version }}'
+          body_path: CHANGELOG_ENTRY.md
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to npm
+        if: inputs.dry_run == false
+        run: |
+          # Publish with provenance for supply chain security
+          npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Dry run summary
+        if: inputs.dry_run == true
+        run: |
+          echo "=== DRY RUN SUMMARY ==="
+          echo "Current version: ${{ steps.current_version.outputs.current_version }}"
+          echo "New version: ${{ steps.new_version.outputs.new_version }}"
+          echo "Version bump: ${{ inputs.version_bump }}"
+          echo "No changes were made to the repository."
+          echo "======================="
+
+      - name: Success message
+        if: inputs.dry_run == false
+        run: |
+          echo "✅ Release ${{ steps.new_version.outputs.new_version }} created successfully!"
+          echo "📦 Package published to npm with provenance"
+          echo "🏷️  Git tag: ${{ steps.new_version.outputs.new_version }}"
+          echo "🔗 View on npm: https://www.npmjs.com/package/@adampetrovich/cvmove"
