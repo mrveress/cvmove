@@ -24,19 +24,19 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: Build package
-        run: npm run build
+        run: yarn build
 
       - name: Run tests
-        run: npm test
+        run: yarn test
 
       - name: Publish to npm
         run: |
           # Publish with provenance for supply chain security
           # The --access public flag is needed for scoped packages
-          npm publish --provenance --access public
+          yarn publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
