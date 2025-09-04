@@ -26,18 +26,12 @@ jobs:
 
       - name: Release Please
         id: release
-        uses: google-github-actions/release-please-action@v4
+        uses: googleapis/release-please-action@v4
         with:
           # Use the default configuration file
           config-file: '.github/release-please-config.json'
           # Token for creating releases and PRs
           token: ${{ secrets.GITHUB_TOKEN }}
-          # Create a GitHub release when a release PR is merged
-          create-release: true
-          # Automatically merge release PRs (optional - you may want manual review)
-          auto-merge: false
-          # Skip if no changes detected
-          skip-if-no-changes: true
           # Ensure tags are created for releases
           include-component-in-tag: false
 
