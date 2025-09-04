@@ -112,7 +112,7 @@ jobs:
           # Publish with provenance for supply chain security
           npm publish --provenance --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Dry run summary
         if: inputs.dry_run == true
