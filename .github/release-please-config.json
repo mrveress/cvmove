@@ -69,8 +69,7 @@
       "draft": false,
       "prerelease": false,
       "include-component-in-tag": false,
-      "tag-separator": "/",
-      "versioning": "default"
+      "tag-separator": "/"
     }
   }
 }
