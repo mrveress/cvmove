@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.0.6](https://github.com/mrveress/cvmove/compare/v0.0.5...v0.0.6) (2025-09-04)
+
+
+### Bug Fixes
+
+* update Node.js version to 20 in workflows ([bee716c](https://github.com/mrveress/cvmove/commit/bee716ca11e951e4d5fab3768180441ba8d78320))
+* update Node.js version to 20 in workflows ([1cc3826](https://github.com/mrveress/cvmove/commit/1cc3826a0a63c85df4d07708176c6f5a93b45a60))
+* use npm publish instead of yarn publish ([18e5493](https://github.com/mrveress/cvmove/commit/18e5493b4f206aeb4bf23f925cfa4ef779f9572f))
+* use npm publish instead of yarn publish ([148b4dd](https://github.com/mrveress/cvmove/commit/148b4dd75e1b33c4c6e3af957aeecfddd70e1e0d))
+
 ## [0.0.5](https://github.com/mrveress/cvmove/compare/v0.0.4...v0.0.5) (2025-09-04)
 
 
