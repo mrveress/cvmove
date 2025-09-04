@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.0.5](https://github.com/mrveress/cvmove/compare/v0.0.4...v0.0.5) (2025-09-04)
+
+
+### Bug Fixes
+
+* enable chore commits to trigger releases ([15a4b7f](https://github.com/mrveress/cvmove/commit/15a4b7ff14e6da7897e0cd3dc9d4f79b5160f32a))
+* enable chore commits to trigger releases ([dfa9327](https://github.com/mrveress/cvmove/commit/dfa93275e10d0a0e0bb9f91b5570db88a3f9fc1a))
+
+
+### Miscellaneous Chores
+
+* migrate workflows from npm to yarn ([973bb41](https://github.com/mrveress/cvmove/commit/973bb41876af824aea923b32c41376e88e0e66ec))
+* migrate workflows from npm to yarn ([f9883a5](https://github.com/mrveress/cvmove/commit/f9883a5cd43e4f2fef28c037f9228f94fa863b5b))
+* update release configuration and workflow for versioning ([8917313](https://github.com/mrveress/cvmove/commit/8917313a031c339e0c59c2b4de766c32c66f9d4c))
+* update release configuration and workflow for versioning ([67db378](https://github.com/mrveress/cvmove/commit/67db3789c0d8495b1e2c128d0f6add7ad30aa32e))
+
 ## [0.0.4](https://github.com/mrveress/cvmove/compare/0.0.3...v0.0.4) (2025-09-04)
 
 
