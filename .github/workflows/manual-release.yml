@@ -110,7 +110,7 @@ jobs:
         if: inputs.dry_run == false
         run: |
           # Publish with provenance for supply chain security
-          yarn publish --provenance --access public
+          npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

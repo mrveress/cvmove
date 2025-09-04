@@ -36,7 +36,7 @@ jobs:
         run: |
           # Publish with provenance for supply chain security
           # The --access public flag is needed for scoped packages
-          yarn publish --provenance --access public
+          npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
