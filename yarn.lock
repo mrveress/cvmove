@@ -4010,10 +4010,10 @@ eslint@^8.56.0:
     strip-ansi "^6.0.1"
     text-table "^0.2.0"
 
-esmock@^2.7.1:
-  version "2.7.1"
-  resolved "https://registry.npmjs.org/esmock/-/esmock-2.7.1.tgz"
-  integrity sha512-YgtZ6TSwRbdqFLkJwxVCYkt0rzKpjHb0tbDqSjWvbkm8Uy5Tm5W6ixICb3FVRkAd1uQlLOXiIn7OPY4F4f18cw==
+esmock@^2.7.2:
+  version "2.7.2"
+  resolved "https://registry.yarnpkg.com/esmock/-/esmock-2.7.2.tgz#af8f0116d1b550809f46d2fc36fc24c88c73faf7"
+  integrity sha512-/ilhkWbW4FXgQpRbS0LZpKG1AFkiFZkmapP/868Lqa4hSKgKVtMilFXlQrIMssLzyvpeDVg2Q9L3VInnqYoTAg==
 
 espree@^9.6.0, espree@^9.6.1:
   version "9.6.1"
