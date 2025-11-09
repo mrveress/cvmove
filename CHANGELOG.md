@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.0.11](https://github.com/mrveress/cvmove/compare/v0.0.10...v0.0.11) (2025-11-09)
+
+
+### Miscellaneous Chores
+
+* **dev-deps:** bump @salesforce/cli-plugins-testkit ([150ef56](https://github.com/mrveress/cvmove/commit/150ef56ca5b8e571b1b26fddcb9e6736a383d685))
+* **dev-deps:** bump @salesforce/cli-plugins-testkit from 5.3.39 to 5.3.41 ([9be1b77](https://github.com/mrveress/cvmove/commit/9be1b7741ec7c011ce09d456dde0b25a0c8c3e52))
+* **dev-deps:** bump @types/node from 24.3.0 to 24.9.1 ([bec1124](https://github.com/mrveress/cvmove/commit/bec1124de6504f4275a8582a9593d7bad6cc8864))
+* **dev-deps:** bump @types/node from 24.3.0 to 24.9.1 ([e293bb2](https://github.com/mrveress/cvmove/commit/e293bb20c7cabe807325d283912df45661875e19))
+* **dev-deps:** bump eslint-plugin-sf-plugin from 1.20.31 to 1.20.33 ([cd4a66a](https://github.com/mrveress/cvmove/commit/cd4a66a01f9622c835a2d41adc4278b8308fd4ec))
+* **dev-deps:** bump eslint-plugin-sf-plugin from 1.20.31 to 1.20.33 ([bfe83ba](https://github.com/mrveress/cvmove/commit/bfe83baf629461c2c542197b56417911a94adc3d))
+* **dev-deps:** bump esmock from 2.7.1 to 2.7.3 ([0dbc399](https://github.com/mrveress/cvmove/commit/0dbc39977cb26f1f8fbc6d43a914bbcd6f5b1809))
+* **dev-deps:** bump esmock from 2.7.1 to 2.7.3 ([2657cad](https://github.com/mrveress/cvmove/commit/2657cadd52e73fd70d2df1897ea869331e2b45e9))
+
 ## [0.0.10](https://github.com/mrveress/cvmove/compare/v0.0.9...v0.0.10) (2025-09-04)
 
 
